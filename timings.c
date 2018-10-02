@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "meme.h"
+#include "primecalc.h"
 
 int main(void){
 	FILE * f1=fopen("times.csv","w");
@@ -17,6 +17,4 @@ int main(void){
 		clock_gettime(CLOCK_PROCESS_CPUTIME_ID,&e);
 		fprintf(f1,"%d,%li,%li,%li\n",i,s.tv_nsec,e.tv_nsec,e.tv_nsec-s.tv_nsec);
 	}
-	fflush(f1);
-	fclose(f1);
 }
