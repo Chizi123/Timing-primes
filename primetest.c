@@ -11,6 +11,7 @@ typedef struct node{
 	struct node *next;
 } list_t;
 
+void add_node(list_t *lst);
 void free_list(list_t *lst);
 
 int prime(int reps){
@@ -39,13 +40,18 @@ int prime(int reps){
 			while(current->next!=NULL){
 				current= current->next;
 			}
-			current->next = malloc(sizeof(list_t));
+			add_node(current);
 			current = current->next;
 			current->num = n;
 		}
 		free_list(head);
 	}
 	return 1;
+}
+
+void add_node(list_t *lst){
+	lst->next=malloc(sizeof(list_t));
+	lst->next->next=NULL;
 }
 
 void free_list(list_t *lst){
