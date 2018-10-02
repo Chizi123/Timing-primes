@@ -13,12 +13,14 @@ typedef struct node{
 	struct node *next;
 } list_t;
 
+void free_list(list_t *lst);
+
 int prime(int reps){
 	int isprime;
 	list_t *head, *current;
-	head=malloc(sizeof(list_t));
 	//Main loop of program, loops through odd numbers and checks of they are factors of numbers in the list
 	for(unsigned long long n = 3; n<reps; n+=2){
+		head=malloc(sizeof(list_t));
 		current = head;
 		isprime=1;
 		while(current != NULL){
@@ -43,6 +45,15 @@ int prime(int reps){
 			current = current->next;
 			current->num = n;
 		}
+		free_list(head);
 	}
 	return 1;
+}
+
+void free_list(list_t *lst){
+	while(lst!=NULL){
+		list_t *temp=lst;
+		lst=lst->next;
+		free(temp);
+	}
 }

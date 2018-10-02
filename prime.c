@@ -3,8 +3,6 @@
  * Made by Joel Grunbaum
 */
 
-int prime(void);
-
 #ifndef header
 int main(void){
 	prime();
@@ -33,7 +31,7 @@ void *check(void *g){
 	pthread_exit(NULL);
 }
 
-int prime(void){
+int main(void){
 	printf("start\n");
 	FILE *ls;
 
