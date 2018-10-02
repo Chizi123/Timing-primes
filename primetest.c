@@ -4,8 +4,6 @@
 */
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-//Swap pthread for conio if running on windows instead of linux
 
 //Linked list
 typedef struct node{

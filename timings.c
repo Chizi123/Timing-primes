@@ -16,10 +16,8 @@ int main(void){
 		clock_gettime(CLOCK_PROCESS_CPUTIME_ID,&s);
 		prime(i);
 		clock_gettime(CLOCK_PROCESS_CPUTIME_ID,&e);
-		fprintf(f1,"%d,%d,%d,%d\n",i,s.tv_nsec,e.tv_nsec,e.tv_nsec-s.tv_nsec);
-		// printf("%d,%d,%d,%d\n",i,s.tv_nsec,e.tv_nsec,(e.tv_nsec-s.tv_nsec));
+		fprintf(f1,"%d,%li,%li,%li\n",i,s.tv_nsec,e.tv_nsec,e.tv_nsec-s.tv_nsec);
 		fflush(f1);
-		fflush(stdout);
 	}
 	fclose(f1);
 }
