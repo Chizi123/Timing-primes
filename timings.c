@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-// #include <windows.h>
 #include "meme.h"
 
 int main(void){
@@ -16,10 +15,8 @@ int main(void){
 		clock_gettime(CLOCK_PROCESS_CPUTIME_ID,&s);
 		prime(i);
 		clock_gettime(CLOCK_PROCESS_CPUTIME_ID,&e);
-		fprintf(f1,"%d,%d,%d,%d\n",i,s.tv_nsec,e.tv_nsec,e.tv_nsec-s.tv_nsec);
-		// printf("%d,%d,%d,%d\n",i,s.tv_nsec,e.tv_nsec,(e.tv_nsec-s.tv_nsec));
-		fflush(f1);
-		fflush(stdout);
+		fprintf(f1,"%d,%li,%li,%li\n",i,s.tv_nsec,e.tv_nsec,e.tv_nsec-s.tv_nsec);
 	}
+	fflush(f1);
 	fclose(f1);
 }
