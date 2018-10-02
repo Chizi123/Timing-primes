@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 // #include <windows.h>
-#include "meme.h"
+#include "primecalc.h"
 
 int main(void){
 	FILE * f1=fopen("times.csv","w");
