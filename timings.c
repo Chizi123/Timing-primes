@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <windows.h>
 #include "meme.h"
 
 int main(void){
@@ -11,11 +11,11 @@ int main(void){
 	fprintf(f1,"num_test,start,end,time\n");
 
 	for(int i=1; i<meme; i++){
-		clock_t start, end;
-		start=clock();
+		LARGE_INTEGER start, end;
+		QueryPerformanceCounter(&start);
 		prime(i);
-		end=clock();
-		fprintf(f1,"%d,%li,%li,%li\n",i,start,end,end-start);
+		QueryPerformanceCounter(&end);
+		fprintf(f1,"%d,%li,%li,%li\n",i,start.QuadPart,end.QuadPart,end.QuadPart-start.QuadPart);
 	}
 	fclose(f1);
 }
